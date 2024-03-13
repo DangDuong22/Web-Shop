@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.News>
+<section class="blog__section section--padding pt-0">
+    <div class="container-fluid">
+        @if (Model != null && Model.Any())
+        {
+            <div class="section__heading text-center mb-40">
+                <h2 class="section__heading--maintitle">Tin tức thời trang mới nhất</h2>
+            </div>
+            <div class="blog__section--inner blog__swiper--activation swiper">
+                <div class="swiper-wrapper">
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide">
+                            <div class="blog__items">
+                                <div class="blog__thumbnail">
+                                    <a class="blog__thumbnail--link" href="#"><img class="blog__thumbnail--img" src="@item.Image" alt="@item.Title"></a>
+                                </div>
+                                <div class="blog__content">
+                                    <span class="blog__content--meta">Ngày @item.CreatedBy | @item.CreatedDate.ToString("mm/dd/yy")</span>
+                                    @if (item.Title.Length < 25)
+                                    {
+                                        <h3 class="blog__content--title">
+                                            <a href="#">
+                                                @item.Title
+                                            </a>
+                                        </h3>
+                                    }
+                                    else
+                                    {
+
+                                        <h3 class="blog__content--title">
+                                            <a href="#">
+                                                @item.Title.Substring(0, 25) ...
+                                            </a>
+                                        </h3>
+                                    }
+
+                                    <a class="blog__content--btn primary__btn" href="@item.Alias-n@(item.Id)">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="swiper__nav--btn swiper-button-next"></div>
+                <div class="swiper__nav--btn swiper-button-prev"></div>
+            </div>
+        }
+    </div>
+</section>

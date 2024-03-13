@@ -1,0 +1,128 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.ShoppingCartItem>
+@using WebBanHangOnline.Common
+@if (Model != null && Model.Any())
+{
+    var i = 0;
+    var tongtien = decimal.Zero;
+
+
+    <div class="col-lg-8">
+        <div class="cart__table">
+            <table class="cart__table--inner">
+                <thead class="cart__table--header">
+                    <tr class="cart__table--header__items">
+                        <th class="cart__table--header__list">Sản Phẩm</th>
+                        <th class="cart__table--header__list">Giá</th>
+                        <th class="cart__table--header__list">Số lượng</th>
+                        <th class="cart__table--header__list">Tổng tiền</th>
+                        <th class="cart__table--header__list">Chọn</th>
+                    </tr>
+                </thead>
+                <tbody class="cart__table--body">
+                    <!-- Begin tr sp -->
+                    @foreach (var item in Model)
+                    {
+                        tongtien += item.TotalPrice;
+                        <tr class="cart__table--body__items" id="trow_@item.ProductId">
+                            <td class="cart__table--body__list">
+                                <div class="cart__product d-flex align-items-center">
+                                   
+                                    <button class="cart__remove--btn btnDelete" aria-label="search button" type="button" data-id="@item.ProductId">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z" /></svg>
+                                    </button>
+                                    
+                                        
+                                        <div class="cart__thumbnail">
+                                            <a href="/chi-tiet/@item.Alias-p@(item.ProductId)"><img class="border-radius-5" src="@item.ProductImg" alt="cart-product"></a>
+                                        </div>
+                                        <div class="cart__content">
+                                            <h4 class="cart__content--title"><a href="/chi-tiet/@item.Alias-p@(item.ProductId)">@item.ProductName</a></h4>
+                                            <span class="cart__content--variant">sản phẩm thuộc:</span>
+                                            <span class="cart__content--variant">@item.CategoryName</span>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td class="cart__table--body__list">
+                                <span class="cart__price">@Common.FormatNumber(item.Price, 0)</span>
+                            </td>
+                            <td class="cart__table--body__list">
+                                <div class="quantity__box">
+                                    @*<button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>*@
+                                    <label>
+                                        <input type="number" class="form-control quantity__number quickview__value--number" id="Quantity_@item.ProductId" value="@item.Quantity" data-counter />
+                                    </label>
+                                    @*<button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>*@
+                                </div>
+                            </td>
+                            <td class="cart__table--body__list">
+                                <span class="cart__price end">@Common.FormatNumber(item.TotalPrice, 2)</span>
+                            </td>
+                            <td class="cart__table--body__list">
+                                @*<a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnDelete">Xóa</a>*@
+                                @*<a href="#" data-id="@item.ProductId" class=" btnUpdate" style="font-size:20px">Cập nhật</a>*@
+                                <button data-id="@item.ProductId" class="coupon__code--field__btn primary__btn btnUpdate" type="submit">Cập nhật</button>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+            <div class="continue__shopping d-flex justify-content-between">
+                <a class="continue__shopping--link" href="/san-pham">Xem thêm sản phẩm</a>
+                <button class="continue__shopping--clear btnDeleteAll" type="submit">Xoá tất cả</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="cart__summary border-radius-10">
+            <div class="coupon__code mb-30">
+                <h3 class="coupon__code--title">Thông tin mua hàng</h3>
+                <p class="coupon__code--desc">Nhập mã giảm giá của bạn nếu có.</p>
+                <div class="coupon__code--field d-flex">
+                    <label>
+                        <input class="coupon__code--field__input border-radius-5" placeholder="Mã giảm giá" type="text">
+                    </label>
+                    <button class="coupon__code--field__btn primary__btn" type="submit">Nhập mã</button>
+                </div>
+            </div>
+            <div class="cart__note mb-20">
+                <h3 class="cart__note--title">Ghi chú</h3>
+                <p class="cart__note--desc">Thêm hướng dẫn đặc biệt cho người bán của bạn...</p>
+                <textarea class="cart__note--textarea border-radius-5"></textarea>
+            </div>
+            <div class="cart__summary--total mb-20">
+                <table class="cart__summary--total__table">
+                    <tbody>
+                        @*<tr class="cart__summary--total__list">
+                                <td class="cart__summary--total__title text-left">SUBTOTAL</td>
+                                <td class="cart__summary--amount text-right">$860.00</td>
+                            </tr>*@
+                        <tr class="cart__summary--total__list">
+                            <td class="cart__summary--total__title text-left">Tổng tiền</td>
+                            <td class="cart__summary--amount text-right">@Common.FormatNumber(tongtien, 0)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cart__summary--footer">
+                <p class="cart__summary--footer__desc">Vận chuyển và thuế được tính khi thanh toán</p>
+                @if (ViewBag.CheckCart != null)
+                {
+                    <ul class="d-flex justify-content-between">
+                        <li><button class="cart__summary--footer__btn primary__btn cart btnDeleteAll" type="submit">Xoá</button></li>
+                        <li><a class="cart__summary--footer__btn primary__btn checkout btn btn-success" href="/thanh-toan">Thanh toán</a></li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- End tr sp -->
+
+}
+else
+{
+    <tr>
+        <th colspan="7">Không có sản phẩm trong giỏ hàng!!</th>
+    </tr>
+}

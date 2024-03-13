@@ -1,0 +1,118 @@
+﻿@using WebBanHangOnline.Common
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Colo Shop Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/suruchi/assets/img/favicon.ico">
+
+    <!-- ======= All CSS Plugins here ======== -->
+    <link rel="stylesheet" href="~/Content/suruchi/assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/Content/suruchi/assets/css/plugins/glightbox.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Plugin css -->
+    <link rel="stylesheet" href="~/Content/suruchi/assets/css/vendor/bootstrap.min.css">
+
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="~/Content/suruchi/assets/css/style.css">
+    <meta name="description" content="@ViewBag.SeoDescription" />
+    <meta name="keywords" itemprop="keywords" content="@ViewBag.SeoKeyWord" />
+    @*<meta name="news_keywords" content="@ViewBag.SeoKeyWord" />*@
+    <link rel="canonical" href="https://www.ten_mien_cua_cac_ban/" />
+    <meta name="robots" content="index,follow,noodp" />
+    <meta name="robots" content="noarchive">
+    <meta property="og:site_name" content="Bán hàng online" />
+    <meta property="og:type" content="Website" />
+    <meta property="og:locale" content="vi_VN" />
+    @*<meta property="fb:app_id" content="232505114857147" />*@
+    @*<meta property="fb:pages" content="1128104117285467" />*@
+    <meta property="og:title" itemprop="name" content="@ViewBag.Title" />
+    <meta property="og:url" itemprop="url" content="https://www.ten_mien_cua_cac_ban/" />
+    <meta property="og:description" content="@ViewBag.SeoDescription" />
+    <meta content="https://cdn.24h.com.vn/upload/2-2018/images/2018-06-14/logo-chan-trang-24h.png" property="og:image" itemprop="thumbnailUrl" />
+    <!--script_breadcrum-->
+    @*@RenderSection("css", required: false)*@
+
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Content/assets/js/jquery-3.2.1.min.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Start preloader -->
+    <div id="preloader">
+        <div id="ctn-preloader" class="ctn-preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
+                <div class="txt-loading">
+                    <span data-text-preloader="L" class="letters-loading">
+                        L
+                    </span>
+
+                    <span data-text-preloader="O" class="letters-loading">
+                        O
+                    </span>
+
+                    <span data-text-preloader="A" class="letters-loading">
+                        A
+                    </span>
+
+                    <span data-text-preloader="D" class="letters-loading">
+                        D
+                    </span>
+
+                    <span data-text-preloader="I" class="letters-loading">
+                        I
+                    </span>
+
+                    <span data-text-preloader="N" class="letters-loading">
+                        N
+                    </span>
+
+                    <span data-text-preloader="G" class="letters-loading">
+                        G
+                    </span>
+                </div>
+            </div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    @RenderBody()
+
+
+    <script src="/Content/suruchi/assets/js/vendor/popper.js" defer="defer"></script>
+    <script src="/Content/suruchi/assets/js/vendor/bootstrap.min.js" defer="defer"></script>
+    <script src="/Content/suruchi/assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="/Content/suruchi/assets/js/plugins/glightbox.min.js"></script>
+
+    <!-- Customscript js -->
+    <script src="/Content/suruchi/assets/js/script.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    <script src="~/Scripts/jsShopping.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

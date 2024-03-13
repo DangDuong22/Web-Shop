@@ -1,0 +1,119 @@
+﻿@model WebBanHangOnline.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Đăng ký";
+}
+
+
+
+
+<!--Begin accout-->
+<main class="main__content_wrapper">
+
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <h1 class="breadcrumb__content--title text-white mb-25">Đăng ký</h1>
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a class="text-white" href="/">Trang chủ</a></li>
+                            <li class="breadcrumb__content--menu__items"><span class="text-white">@ViewBag.Title</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+    <!-- Start login section  -->
+    <div class="login__section section--padding">
+        <div class="container">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="login__section--inner">
+                    <div class="">
+                        <!--Begin Register-->
+                        <div class="col">
+                            <div class="account__login register">
+                                <div class="account__login--header mb-25">
+                                    <h2 class="account__login--header__title h3 mb-10">@ViewBag.Title</h2>
+                                    <p class="account__login--header__desc">Đăng ký tại đây nếu bạn là khách hàng mới.</p>
+                                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                                </div>
+                                <div class="account__login--inner">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "account__login--input", @placeholder = "Nhập Email của bạn" })
+                                    @Html.PasswordFor(m => m.Password, new { @class = "account__login--input", @placeholder = "Nhập mật khẩu của bạn" })
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "account__login--input", @placeholder = "Nhập lại mật khẩu của bạn" })
+                                    <div class="account__login--remember position__relative">
+                                        <input class="checkout__checkbox--input" id="check2" type="checkbox">
+                                        <span class="checkout__checkbox--checkmark"></span>
+                                        <label class="checkout__checkbox--label login__remember--label" for="check2">
+                                            Tôi đã đọc và đồng ý với các điều khoản và điều kiện
+                                        </label>
+                                    </div>
+                                    <button class="account__login--btn primary__btn mb-10" type="submit" value="Register">Gửi đăng ký</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Register-->
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+    <!-- End login section  -->
+    <!-- Start shipping section -->
+    <section class="shipping__section2 shipping__style3 section--padding pt-0">
+        <div class="container">
+            <div class="shipping__section2--inner shipping__style3--inner d-flex justify-content-between">
+                <div class="shipping__items2 d-flex align-items-center">
+                    <div class="shipping__items2--icon">
+                        <img src="/Content/suruchi/assets/img/other/shipping1.png" alt="">
+                    </div>
+                    <div class="shipping__items2--content">
+                        <h2 class="shipping__items2--content__title h3">Giao hàng</h2>
+                        <p class="shipping__items2--content__desc">Đóng gói cẩn thận, giao hàng nhanh</p>
+                    </div>
+                </div>
+                <div class="shipping__items2 d-flex align-items-center">
+                    <div class="shipping__items2--icon">
+                        <img src="/Content/suruchi/assets/img/other/shipping2.png" alt="">
+                    </div>
+                    <div class="shipping__items2--content">
+                        <h2 class="shipping__items2--content__title h3">Payment</h2>
+                        <p class="shipping__items2--content__desc">Bank, Pay dễ dàng</p>
+                    </div>
+                </div>
+                <div class="shipping__items2 d-flex align-items-center">
+                    <div class="shipping__items2--icon">
+                        <img src="/Content/suruchi/assets/img/other/shipping3.png" alt="">
+                    </div>
+                    <div class="shipping__items2--content">
+                        <h2 class="shipping__items2--content__title h3">Chính sách</h2>
+                        <p class="shipping__items2--content__desc">Hoàn trả miễn phí 7 ngày</p>
+                    </div>
+                </div>
+                <div class="shipping__items2 d-flex align-items-center">
+                    <div class="shipping__items2--icon">
+                        <img src="/Content/suruchi/assets/img/other/shipping4.png" alt="">
+                    </div>
+                    <div class="shipping__items2--content">
+                        <h2 class="shipping__items2--content__title h3">Hỗ trợ</h2>
+                        <p class="shipping__items2--content__desc">Chăm sóc khách hàng tận tình</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End shipping section -->
+
+</main>
+<!--End accout-->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

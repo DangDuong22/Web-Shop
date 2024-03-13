@@ -1,0 +1,33 @@
+﻿@model WebBanHangOnline.Models.ThongKeModel
+@if (Model != null)
+{
+<div class="single__widget widget__bg">
+    <h2 class="widget__title h3">Thông tin truy cập</h2>
+    <ul class="widget__form--check">
+        <li class="widget__form--check__list">
+            <label class="widget__form--check__label">Hôm nay</label>
+            @*<input class="widget__form--check__input" id="check1" type="text" placeholder="0">*@
+            <span class="widget__form--checkmark" style="text-align:center">@Model.HomNay</span>
+        </li>
+    </ul>
+    <ul class="widget__form--check">
+        <li class="widget__form--check__list">
+            <label class="widget__form--check__label">Hôm qua</label>
+            <span class="widget__form--checkmark" style="text-align:center">@Model.HomQua</span>
+        </li>
+    </ul>
+    <ul class="widget__form--check">
+        <li class="widget__form--check__list">
+            <label class="widget__form--check__label">Tuần này</label>
+            <span class="widget__form--checkmark" style="text-align:center">@Model.TuanNay</span>
+        </li>
+    </ul>
+    <ul class="widget__form--check">
+        <li class="widget__form--check__list">
+            <label class="widget__form--check__label">Số người Online</label>
+            <span class="widget__form--checkmark" style="text-align:center">@ViewBag.Visitors_online</span>
+        </li>
+    </ul>
+</div>
+
+}

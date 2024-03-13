@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.ProductCategory>
+
+@if (Model != null && Model.Any())
+{
+
+    <ul class="widget__categories--menu">
+        <li class="widget__categories--menu__list">
+            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="/san-pham">
+                <label class="widget__categories--menu__label d-flex align-items-center">
+                    <img class="widget__categories--menu__img" src="/Content/suruchi/assets/img/product/small-product2.png" alt="Tất cả sản phẩm" style="width:30px; height:36px">
+                    <span class="widget__categories--menu__text">
+                        Tất cả sản phẩm
+                    </span>
+                </label>
+            </a>
+        </li>
+
+        @foreach (var item in Model)
+        {
+            if (ViewBag.CateId == item.Id)
+            {
+                <li class="widget__categories--menu__list">
+                    <label class="widget__categories--menu__label d-flex align-items-center">
+                        <img class="widget__categories--menu__img" src="@item.Icon" alt="@item.Title" style="width:30px; height:36px">
+                        <span class="widget__categories--menu__text">@item.Title</span>
+                        <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
+                            <path d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
+                        </svg>
+                    </label>
+                    <ul class="widget__categories--sub__menu">
+                        <li class="widget__categories--sub__menu--list">
+                            <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="/danh-muc-san-pham/@item.Alias-@(item.Id)">
+                                <img class="widget__categories--sub__menu--img" src="@item.Icon" alt="@item.Title" style="width:30px; height:36px">
+                                <span class="widget__categories--sub__menu--text">@item.Title</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            }
+            else
+            {
+                <li class="widget__categories--menu__list">
+                    <label class="widget__categories--menu__label d-flex align-items-center">
+                        <img class="widget__categories--menu__img" src="@item.Icon" alt="@item.Title" style="width:30px; height:36px">
+                        <span class="widget__categories--menu__text">@item.Title</span>
+                        <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
+                            <path d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
+                        </svg>
+                    </label>
+                    <ul class="widget__categories--sub__menu">
+                        <li class="widget__categories--sub__menu--list">
+                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="/danh-muc-san-pham/@item.Alias-@(item.Id)">
+                                <img class="widget__categories--sub__menu--img" src="@item.Icon" alt="@item.Title" style="width:30px; height:36px">
+                                <span class="widget__categories--sub__menu--text">@item.Title</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+        }
+        @*<li><a href="#">Men</a></li>
+            <li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Women</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Collection</a></li>
+            <li><a href="#">Shop</a></li>*@
+    </ul>
+}

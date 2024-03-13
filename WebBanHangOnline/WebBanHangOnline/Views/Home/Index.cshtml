@@ -1,0 +1,290 @@
+﻿@{
+    ViewBag.Title = "Shop Online";
+    ViewBag.SeoDescription = "Shop Online";
+    int currentYear = DateTime.Now.Year;
+}
+
+
+
+
+<!-- Banner -->
+
+<main class="main__content_wrapper">
+    <!-- Start slider section -->
+    <section class="hero__slider--section">
+        <div class="hero__slider--inner hero__slider--activation swiper">
+            <div class="hero__slider--wrapper swiper-wrapper">
+                <div class="swiper-slide ">
+                    <div class="hero__slider--items home1__slider--bg">
+                        <div class="container-fluid">
+                            <div class="hero__slider--items__inner">
+                                <div class="row row-cols-1">
+                                    <div class="col">
+                                        <div class="slider__content">
+                                            <p class="slider__content--desc desc1 mb-15"><img class="slider__text--shape__icon" src="/Content/suruchi/assets/img/icon/text-shape-icon.png" alt="text-shape-icon"> Bộ sưu tập mới</p>
+                                            <h2 class="slider__content--maintitle h1">
+                                                Xu hướng <br>
+                                                Thời trang @currentYear
+                                            </h2>
+                                            <p class="slider__content--desc desc2 d-sm-2-none mb-40">
+                                                Giảm tới 40% các mặt hàng<br>
+                                                Giá giảm cuối cùng!
+                                            </p>
+                                            <a class="slider__btn primary__btn" href="/san-pham">
+                                                Xem trực tiếp
+                                                <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
+                                                    <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <div class="hero__slider--items home1__slider--bg two">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="hero__slider--items__inner">
+                                        <div class="slider__content">
+                                            <p class="slider__content--desc desc1 mb-15"><img class="slider__text--shape__icon" src="/Content/suruchi/assets/img/icon/text-shape-icon.png" alt="text-shape-icon"> Bộ sưu tập mới</p>
+                                            <h2 class="slider__content--maintitle h1">
+                                                Đẳng cấp <br>
+                                                Quý ông @currentYear
+                                            </h2>
+                                            <p class="slider__content--desc desc2 d-sm-2-none mb-40 ">
+                                                Giảm tới 30% các mặt hàng<br>
+                                                Giá giảm cuối cùng!
+                                            </p>
+                                            <a class="primary__btn slider__btn" href="/san-pham">
+                                                Xem trực tiếp
+                                                <svg class="slider__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
+                                                    <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <div class="hero__slider--items home1__slider--bg three">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6 offset-lg-6">
+                                    <div class="hero__slider--items__inner">
+                                        <div class="slider__content text-center">
+                                            <p class="slider__content--desc desc1 mb-15"><img class="slider__text--shape__icon" src="/Content/suruchi/assets/img/icon/text-shape-icon.png" alt="text-shape-icon"> Bộ sưu tập mới</p>
+                                            <h2 class="slider__content--maintitle h1">
+                                                Thời thượng<br>
+                                                Mỹ nhân @currentYear
+                                            </h2>
+                                            <p class="slider__content--desc desc2 d-sm-2-none mb-40">
+                                                Giảm tới 50% các mặt hàng<br>
+                                                Giá giảm cuối cùng!
+                                            </p>
+                                            <a class="primary__btn slider__btn" href="/san-pham">
+                                                Xem trực tiếp
+                                                <svg class="slider__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
+                                                    <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper__nav--btn swiper-button-next"></div>
+            <div class="swiper__nav--btn swiper-button-prev"></div>
+        </div>
+    </section>
+    <!-- End slider section -->
+    <!-- Productcatelory-->
+    @Html.Action("MenuProductCategory", "Menu")
+    <!-- End Productcatelory-->
+    <!-- Start product section -->
+    @Html.Action("MenuArrivals", "Menu")
+    <!-- End product section -->
+    <!-- Start deals banner section -->
+    <section class="deals__banner--section section--padding pt-0">
+        <div class="container-fluid">
+            <div class="deals__banner--inner banner__bg">
+                <div class="row row-cols-1 align-items-center">
+                    <div class="col">
+                        <div class="deals__banner--content position__relative">
+                            <span class="deals__banner--content__subtitle text__secondary">Hãy nhanh tay để được giảm giá 25%</span>
+                            <h2 class="deals__banner--content__maintitle">Ưu đãi trong ngày</h2>
+                            <p class="deals__banner--content__desc">Giảm giá tất cả các mặt hàng từ thời trang Nam, Nữ cho đến túi xách,<br> đồng hồ và các mặt hàng thời trang khác đồng loạt sale mạnh trong hôm nay.</p>
+                            <div class="deals__banner--countdown d-flex" data-countdown="Sep 30, 2022 00:00:00"></div>
+                            <a class="primary__btn" href="/san-pham">
+                                Click để xem
+                                <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
+                                    <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
+                                </svg>
+                            </a>
+                            <br>
+                            <div class="banner__bideo--play">
+                                <a class="banner__bideo--play__icon glightbox" href="https://vimeo.com/115041822" data-gallery="video">
+                                    <svg id="play" xmlns="http://www.w3.org/2000/svg" width="40.302" height="40.302" viewBox="0 0 46.302 46.302">
+                                        <g id="Group_193" data-name="Group 193" transform="translate(0 0)">
+                                            <path id="Path_116" data-name="Path 116" d="M39.521,6.781a23.151,23.151,0,0,0-32.74,32.74,23.151,23.151,0,0,0,32.74-32.74ZM23.151,44.457A21.306,21.306,0,1,1,44.457,23.151,21.33,21.33,0,0,1,23.151,44.457Z" fill="currentColor" />
+                                            <g id="Group_188" data-name="Group 188" transform="translate(15.588 11.19)">
+                                                <g id="Group_187" data-name="Group 187">
+                                                    <path id="Path_117" data-name="Path 117" d="M190.3,133.213l-13.256-8.964a3,3,0,0,0-4.674,2.482v17.929a2.994,2.994,0,0,0,4.674,2.481l13.256-8.964a3,3,0,0,0,0-4.963Zm-1.033,3.435-13.256,8.964a1.151,1.151,0,0,1-1.8-.953V126.73a1.134,1.134,0,0,1,.611-1.017,1.134,1.134,0,0,1,1.185.063l13.256,8.964a1.151,1.151,0,0,1,0,1.907Z" transform="translate(-172.366 -123.734)" fill="currentColor" />
+                                                </g>
+                                            </g>
+                                            <g id="Group_190" data-name="Group 190" transform="translate(28.593 5.401)">
+                                                <g id="Group_189" data-name="Group 189">
+                                                    <path id="Path_118" data-name="Path 118" d="M328.31,70.492a18.965,18.965,0,0,0-10.886-10.708.922.922,0,1,0-.653,1.725,17.117,17.117,0,0,1,9.825,9.664.922.922,0,1,0,1.714-.682Z" transform="translate(-316.174 -59.724)" fill="currentColor" />
+                                                </g>
+                                            </g>
+                                            <g id="Group_192" data-name="Group 192" transform="translate(22.228 4.243)">
+                                                <g id="Group_191" data-name="Group 191">
+                                                    <path id="Path_119" data-name="Path 119" d="M249.922,47.187a19.08,19.08,0,0,0-3.2-.27.922.922,0,0,0,0,1.845,17.245,17.245,0,0,1,2.889.243.922.922,0,1,0,.31-1.818Z" transform="translate(-245.801 -46.917)" fill="currentColor" />
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="visually-hidden">Video Play</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End deals banner section -->
+    <!-- Best Sellers -->
+    @Html.Action("Partial_ProductSales", "Products")
+    <!-- Benefit -->
+    <!-- Start banner section -->
+    <section class="banner__section section--padding pt-0">
+        <div class="container-fluid">
+            <div class="row row-cols-md-2 row-cols-1 mb--n28">
+                <div class="col mb-28">
+                    <div class="banner__items position__relative">
+                        <a class="banner__items--thumbnail " href="/san-pham">
+                            <img class="banner__items--thumbnail__img banner__img--max__height" src="/Content/suruchi/assets/img/banner/banner5.png" alt="banner-img">
+                            <div class="banner__items--content">
+                                <span class="banner__items--content__subtitle d-none d-lg-block">Đặt hàng ngay để được</span>
+                                <h2 class="banner__items--content__title h3">Giảm giá tới 25% </h2>
+                                <span class="banner__items--content__link"><u>Xem sản phẩm</u></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col mb-28">
+                    <div class="banner__items position__relative">
+                        <a class="banner__items--thumbnail " href="/san-pham">
+                            <img class="banner__items--thumbnail__img banner__img--max__height" src="/Content/suruchi/assets/img/banner/banner6.png" alt="banner-img">
+                            <div class="banner__items--content">
+                                <span class="banner__items--content__subtitle d-none d-lg-block">Mua 3 sản phẩm</span>
+                                <h2 class="banner__items--content__title h3">Giảm 35% cho tất cả</h2>
+                                <span class="banner__items--content__link"><u>Xem sản phẩm</u> </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner section -->
+    <!-- Start testimonial section -->
+    @Html.Action("Partial_Posts_Home", "Posts")
+    <!-- End testimonial section -->
+    <!-- Start banner section -->
+    <section class="banner__section section--padding pt-0">
+        <div class="container-fluid">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="banner__section--inner position__relative">
+                        <a class="banner__items--thumbnail display-block" href="/san-pham">
+                            <img class="banner__items--thumbnail__img banner__img--height__md display-block" src="/Content/suruchi/assets/img/banner/banner-bg2.png" alt="banner-img">
+                            <div class="banner__content--style2">
+                                <h2 class="banner__content--style2__title text-white">Bạn cần giày mùa đông?</h2>
+                                <p class="banner__content--style2__desc">Hãy yên tâm vì đã có Suruchi đây là nơi chăm sóc thời trang uy tín chất lượng đảm bảo 100% hàng chuẩn quốc tế. </p>
+                                <span class="primary__btn">
+                                    Xem chi tiết
+                                    <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
+                                        <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner section -->
+    <!-- Start New section -->
+    @Html.Action("Partial_News_Home", "News")
+    <!-- End New section -->
+    @*@Html.Action("Partial_News_Home", "News")*@
+    <!-- /.content -->
+    <!-- Quickview Wrapper -->
+    
+    <!-- Quickview Wrapper End -->
+    <!-- Start News letter popup -->
+    <div class="newsletter__popup" data-animation="slideInUp">
+        <div id="boxes" class="newsletter__popup--inner">
+            <button class="newsletter__popup--close__btn" aria-label="search close button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512"><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"></path></svg>
+            </button>
+            <div class="box newsletter__popup--box d-flex align-items-center">
+                <div class="newsletter__popup--thumbnail">
+                    <img class="newsletter__popup--thumbnail__img display-block" src="/Content/suruchi/assets/img/banner/newsletter-popup-thumb2.png" alt="newsletter-popup-thumb">
+                </div>
+                <div class="newsletter__popup--box__right">
+                    <h2 class="newsletter__popup--title">Chúng tôi sẽ gửi thông tin mới nhất đến bạn</h2>
+                    <div class="newsletter__popup--content">
+                        <label class="newsletter__popup--content--desc">Nhập gmail vào ô bên dưới &amp; nhấn gửi để nhận được thông tin sớm nhất</label>
+                        <div class="newsletter__popup--subscribe" id="frm_subscribe">
+                            @using (Ajax.BeginForm("Subscribe", "Home", new AjaxOptions
+                            {
+                                OnBegin = "OnBeginSub",
+                                OnSuccess = "OnSuccessSub",
+                                OnFailure = "OnFailureSub"
+                            }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <script>
+                                    function OnBeginSub() {
+
+                                    }
+                                    function OnSuccessSub(rs) {
+                                        if (rs.Success) {
+                                            alert("Cám ơn bạn đã theo dõi chúng tôi");
+                                        }
+                                    }
+                                    function OnFailureSub(rs) { }
+                                </script>
+                                <div class="newsletter__popup--subscribe__form">
+                                    @*@Html.TextBoxFor(x => x.Email, new {})*@
+                                    <input class="newsletter__popup--subscribe__input" id="newsletter_email" name="Email" type="email" placeholder="Nhập Email của bạn" required="required" data-error="Valid email is required.">
+                                    <button id="newsletter_submit" type="submit" class="newsletter__popup--subscribe__btn" value="Submit">Gửi</button>
+                                </div>
+                            }
+
+                            <div class="newsletter__popup--footer">
+                                <input type="checkbox" id="newsletter__dont--show">
+                                <label class="newsletter__popup--dontshow__again--text" for="newsletter__dont--show">Không hiển thị lại cửa sổ bật lên này</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End News letter popup -->
+    

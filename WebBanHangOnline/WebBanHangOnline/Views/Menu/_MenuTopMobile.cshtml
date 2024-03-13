@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.Category>
+@using WebBanHangOnline.Models
+@{
+    ApplicationDbContext db = new ApplicationDbContext();
+    var Menuproductcategory = db.ProductCategories.ToList();
+    var MenuproductChirl = db.Products.ToList();
+}
+@if (Model != null && Model.Any())
+{
+    <ul class="offcanvas__menu_ul">
+        @foreach (var item in Model)
+        {
+            if (!string.IsNullOrEmpty(item.Link))
+            {
+                item.Alias = item.Link;
+            }
+            if (item.Alias.Equals("trang-chu"))
+            {
+                item.Alias = "";
+                <li class="offcanvas__menu_li">
+                    <a class="offcanvas__menu_item" href="/@item.Alias">@item.Title</a>
+                </li>
+            }
+            else if (item.Alias == "san-pham")
+            {
+                <li class="offcanvas__menu_li">
+                    <a class="offcanvas__menu_item" href="/@item.Alias">
+                        @item.Title
+
+                    </a>
+                    <ul class="offcanvas__sub_menu">
+                        <!--begin sub-->
+                        @foreach (var dropdow1 in Menuproductcategory.OrderByDescending(a => a.Id).Take(4))
+                        {
+                            <li class="offcanvas__sub_menu_li">
+                                <a href="/danh-muc-san-pham/@dropdow1.Alias-@(dropdow1.Id)" class="offcanvas__sub_menu_item">@dropdow1.Title</a>
+                                <ul class="offcanvas__sub_menu">
+                                    @foreach (var dropdow2 in MenuproductChirl.Where(a => a.ProductCategoryId == dropdow1.Id))
+                                    {
+                                        if (dropdow2.Title.Length < 30)
+                                        {
+                                            <li class="header__mega--sub__menu_li"><a class="header__mega--sub__menu--title" href="/chi-tiet/@dropdow2.Alias-p@(dropdow2.Id)">@dropdow2.Title</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="header__mega--sub__menu_li"><a class="header__mega--sub__menu--title" href="/chi-tiet/@dropdow2.Alias-p@(dropdow2.Id)">@dropdow2.Title.Substring(0, 30) ...</a></li>
+
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                        }
+                            <!--begin sub-->
+                        </ul>
+                </li>
+            }
+            else
+            {
+                <li class="offcanvas__menu_li">
+                    <a class="offcanvas__menu_item" href="/@item.Alias">@item.Title</a>
+                </li>
+            }
+
+        }
+
+    </ul>
+}

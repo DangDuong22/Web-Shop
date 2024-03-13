@@ -1,0 +1,86 @@
+﻿@model WebBanHangOnline.Models.OrderViewModel
+@using (Ajax.BeginForm("CheckOut", "Shoppingcart", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "load_data",
+    OnComplete = "OnSuccessCO",
+    OnFailure = "OnFailure"
+
+}, new { @Id = "myForm" }))
+{
+    <script>
+        function OnSuccessCO() {
+            location.href = "/ShoppingCart/CheckOutSuccess";
+        }
+        function OnFailure() {
+
+        }
+    </script>
+    @Html.AntiForgeryToken()
+    <div class="checkout__content--step section__shipping--address">
+        <div class="section__header mb-25">
+            <h3 class="section__header--title">Vui lòng xác nhận thông tin của bạn</h3>
+        </div>
+        <div class="section__shipping--address__content">
+            <div class="row">
+                <div class="col-12 mb-12">
+                    <div class="checkout__input--list ">
+                        <label>
+                            <input type="text" name="CustomerName" placeholder="Họ và Tên" required class="checkout__input--field border-radius-5" autocomplete="off" />
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 mb-12">
+                    <div class="checkout__input--list">
+                        <label>
+                            <input type="text" name="Email" class="checkout__input--field border-radius-5" placeholder="Địa chỉ Email" autocomplete="off" />
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 mb-12">
+                    <div class="checkout__input--list">
+                        <label>
+                            <input name="Phone" class="checkout__input--field border-radius-5" placeholder="Số điện thoại" type="number" autocomplete="off" />
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 mb-12">
+                    <div class="checkout__input--list">
+                        <label>
+                            <input type="text" name="Address" class="checkout__input--field border-radius-5" placeholder="Địa chỉ nhận hàng" autocomplete="off" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-12">
+                    <div class="checkout__input--list checkout__input--select select">
+                        <label class="checkout__select--label" for="country">Hình thức thanh toán</label>
+                        <select class="checkout__input--select__field border-radius-5" id="country" name="TypePayment">
+                            <option value="1" selected>Thanh toán khi nhận</option>
+                            <option value="2">Chuyển Khoản</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-12">
+                    <div class="checkout__input--list">
+                        <label>
+                            <input class="checkout__input--field border-radius-5" placeholder="Mã giảm giá" type="text">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout__checkbox">
+                <input class="checkout__checkbox--input" id="check2" type="checkbox">
+                <span class="checkout__checkbox--checkmark"></span>
+                <label class="checkout__checkbox--label" for="check2">
+                    Bạn chắc chắn với những gì đã cung cấp?
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="checkout__content--step__footer d-flex align-items-center">
+        <button type="submit" class="continue__shipping--btn primary__btn border-radius-5">Đặt hàng</button>
+        @*<a class="continue__shipping--btn primary__btn border-radius-5" href="checkout-2.html">Continue To Shipping</a>*@
+        <a class="previous__link--content" href="/san-pham">Mua thêm sản phẩm</a>
+    </div>
+}

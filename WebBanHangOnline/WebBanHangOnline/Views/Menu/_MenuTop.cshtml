@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.Category>
+@using WebBanHangOnline.Models
+@{
+    ApplicationDbContext db = new ApplicationDbContext();
+    var Menuproductcategory = db.ProductCategories.ToList();
+    var MenuproductChirl = db.Products.ToList();
+}
+
+@if (Model != null && Model.Any())
+{
+    <ul class="d-flex">
+        @foreach (var item in Model)
+        {
+            if (!string.IsNullOrEmpty(item.Link))
+            {
+                item.Alias = item.Link;
+            }
+            if (item.Alias.Equals("trang-chu"))
+            {
+                item.Alias = "";
+                <li class="header__menu--items">
+                    <a class="header__menu--link" href="/@item.Alias">@item.Title</a>
+                </li>
+            }
+            else if (item.Alias == "san-pham")
+            {
+                <li class="header__menu--items mega__menu--items style2">
+                    <a class="header__menu--link" href="/@item.Alias">
+                        @item.Title
+                        <svg class="menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12" height="7.41" viewBox="0 0 12 7.41">
+                            <path d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7" />
+                        </svg>
+                    </a>
+                    <ul class="header__mega--menu d-flex">
+                        <!-- Begin chirl menu-->
+                        @foreach (var dropdow1 in Menuproductcategory.OrderByDescending(a => a.Id).Take(4))
+                        {
+                            <li class="header__mega--menu__li">
+                                <span class="header__mega--subtitle">
+                                    <a href="/danh-muc-san-pham/@dropdow1.Alias-@(dropdow1.Id)">@dropdow1.Title</a>
+                                </span>
+                                <ul class="header__mega--sub__menu">
+                                    @foreach (var dropdow2 in MenuproductChirl.Where(a => a.ProductCategoryId == dropdow1.Id))
+                                    {
+                                        if (dropdow2.Title.Length < 30)
+                                        {
+                                            <li class="header__mega--sub__menu_li"><a class="header__mega--sub__menu--title" href="/chi-tiet/@dropdow2.Alias-p@(dropdow2.Id)">@dropdow2.Title</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="header__mega--sub__menu_li"><a class="header__mega--sub__menu--title" href="/chi-tiet/@dropdow2.Alias-p@(dropdow2.Id)">@dropdow2.Title.Substring(0, 30) ...</a></li>
+
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        <!-- End chirl menu-->
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li class="header__menu--items">
+                    <a class="header__menu--link" href="/@item.Alias">@item.Title</a>
+                </li>
+            }
+
+        }
+
+    </ul>
+}
+<!-- Start Offcanvas header menu -->
